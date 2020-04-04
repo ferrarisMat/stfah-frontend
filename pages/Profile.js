@@ -15,10 +15,10 @@ export default function () {
   const [terrace, updateTerrace] = useState(false);
 
   useEffect(() => {
-    getValueFromStorage("name", () => updateName(name));
-    getValueFromStorage("garden", () => updateName(garden));
-    getValueFromStorage("terrace", () => updateName(terrace));
-  }, []);
+    getValueFromStorage("name", (name) => updateName(name));
+    getValueFromStorage("garden", (garden) => updateName(garden));
+    getValueFromStorage("terrace", (terrace) => updateName(terrace));
+  }, ['name','garden','terrace']);
 
   const updateValueInStorage = async (key, value) => {
     try {
@@ -32,7 +32,7 @@ export default function () {
     try {
       const storedValue = await AsyncStorage.getItem(key);
       if (storedValue !== null) {
-        cb();
+        cb(storedValue);
       }
     } catch (e) {
       console.log(e);
@@ -44,7 +44,7 @@ export default function () {
       <View style={{ paddingTop: 50 }}>
         <View>
           <Text>Your name</Text>
-          <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={{ flexDirection: "row" }}>
             <TextInput
               style={styles.input}
               onChangeText={(text) => updateName(text)}
@@ -52,8 +52,10 @@ export default function () {
             />
             <Button
               title="Save"
-              onPress={() =>
-                updateValueInStorage("name", () => updateName(name))
+              onPress={() => {
+                  updateName(name);
+                  updateValueInStorage("name", name);
+                }
               }
             />
           </View>
@@ -61,19 +63,23 @@ export default function () {
 
         <View style={{ marginTop: 20 }}>
           <Text>Do you have a garden ?</Text>
-          <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={{ flexDirection: "row" }}>
             <Button
               title="yes"
               style={!garden && { color: "#fff" }}
-              onPress={() =>
-                updateValueInStorage("garden", () => updateGarden(true))
+              onPress={() => {
+                  updateGarden(true);
+                  updateValueInStorage("garden", true)
+                }
               }
             />
             <Button
               title="no"
               style={garden && { color: "#fff" }}
-              onPress={() =>
-                updateValueInStorage("garden", () => updateGarden(false))
+              onPress={() => {
+                  updateGarden(false);
+                  updateValueInStorage("garden", false)
+                }
               }
             />
           </View>
@@ -81,19 +87,23 @@ export default function () {
 
         <View style={{ marginTop: 20 }}>
           <Text>Do you have a terrace ?</Text>
-          <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={{ flexDirection: "row" }}>
             <Button
               title="yes"
               style={!terrace && { color: "#fff" }}
-              onPress={() =>
-                updateValueInStorage("terrace", () => updateTerrace(true))
+              onPress={() => {
+                  updateTerrace(true);
+                  updateValueInStorage("terrace", true)
+                }
               }
             />
             <Button
               title="no"
               style={terrace && { color: "#fff" }}
-              onPress={() =>
-                updateValueInStorage("terrace", () => updateTerrace(false))
+              onPress={() => {
+                  updateTerrace(false);
+                  updateValueInStorage("terrace", false)
+                }
               }
             />
           </View>
@@ -111,6 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgreen",
   },
   input: {
+    width: '40%',
     height: 40,
     borderWidth: 1,
     padding: 4,
