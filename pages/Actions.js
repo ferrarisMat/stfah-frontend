@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "lightblue",
+    paddingTop: 50,
   },
   actionRow: {
     borderColor: '#000',
