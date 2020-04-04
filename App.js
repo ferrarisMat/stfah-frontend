@@ -1,18 +1,31 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import SafeAreaView from 'react-native-safe-area-view';
+import { View } from "react-native";
 import Home from "./pages/Home";
 import Actions from "./pages/Actions";
+import { Navigation, navigationRef } from "./components/Navigation";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Actions" component={Actions} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <View style={{flex: 1 }}>
+        <NavigationContainer ref={navigationRef}>
+          <Stack.Navigator headerMode="none">
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Actions" component={Actions} />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <SafeAreaView style={{position: "absolute", top:0, right:0,bottom:0,left:0}}>
+          <View>
+            <Navigation />
+          </View>
+        </SafeAreaView>
+      </View>
+    </SafeAreaProvider>
   );
 }
