@@ -3,8 +3,8 @@ import { Dimensions, View, StyleSheet } from "react-native";
 import { LineChart, Grid, YAxis, XAxis } from 'react-native-svg-charts';
 import { Circle, Path, Defs, LinearGradient, Stop, G, Line, Rect, Text } from 'react-native-svg';
 import * as shape from 'd3-shape'
-import Actions from "../data/actions";
-import UserData from "../data/userdata";
+import Actions from "../../data/actions";
+import UserData from "../../data/userdata";
 
 // Formatting the date
 function formatDate(date){
@@ -16,7 +16,7 @@ function formatDate(date){
     return date
  }
 
- export default class Chart extends React.PureComponent {
+ export default class Charts extends React.PureComponent {
     render() {
         // Initiate the array with total points per day
         let totalPointsPerDay = [];
@@ -138,12 +138,3 @@ function formatDate(date){
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-      borderTopWidth: 0.5,
-      borderTopColor: 'rgba(0, 0, 0, .7)',
-      borderRightWidth: 0.5,
-      borderRightColor: 'rgba(0, 0, 0, .7)'
-    }
-  });

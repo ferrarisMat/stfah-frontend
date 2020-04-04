@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
-import Chart from "../components/Chart";
+import Chart from "../components/Charts";
 import SafeAreaView from 'react-native-safe-area-view';
 
 export default function Home() {
