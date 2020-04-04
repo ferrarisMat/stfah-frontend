@@ -20,8 +20,8 @@ export default function App() {
             <Stack.Screen name="Actions" component={Actions} />
           </Stack.Navigator>
         </NavigationContainer>
-        <SafeAreaView style={{ position: 'absolute', top: 0, left: 0, width:"100%", height: "100%"}}>
-          <View style={{flex:1, pointerEvents:'none'}} pointerEvents="box-none" >
+        <SafeAreaView style={{ position: 'absolute', top: 0, left: 0, width:"100%", height: "100%"}} pointerEvents="box-none">
+          <View style={{flex:1}} pointerEvents="box-none">
             <Navigation />
           </View>
         </SafeAreaView>

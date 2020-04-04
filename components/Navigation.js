@@ -27,7 +27,7 @@ export class Navigation extends Component<{}> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container} pointerEvents="box-none">
         {
           this.returnHome()
         }
