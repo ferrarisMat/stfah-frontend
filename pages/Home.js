@@ -1,12 +1,12 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import Pedometer from "../components/Pedometer/Pedometer";
+// import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
 
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Pedometer />
+      {/* <Pedometer /> */}
       <Navigation navigation={navigation} />
     </View>
   );
@@ -15,6 +15,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: "100%",
     marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
