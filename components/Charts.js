@@ -7,8 +7,8 @@ import ChartMonth from "../components/Chart/ChartMonth";
     render() {
         return(
             <View style={{ height: 200, width: 300 }}>
-                <View style={{ flex: 'row' }}>
-                    
+                <View>
+
                 </View>
                 <ChartWeek />
                 <ChartMonth />
