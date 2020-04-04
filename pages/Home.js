@@ -15,6 +15,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: "100%",
     marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
