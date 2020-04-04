@@ -10,12 +10,32 @@ import { Navigation, navigationRef } from "./components/Navigation";
 
 const Stack = createStackNavigator();
 
+const MainStack = createStackNavigator();
+const RootStack = createStackNavigator();
+
+function ModalScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+      <Button onPress={() => navigation.goBack()} title="Dismiss" />
+    </View>
+  );
+}
+
+function MainStackScreen() {
+  return (
+    <MainStack.Navigator>
+      <MainStack.Screen name="Home" component={Home} />
+    </MainStack.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <SafeAreaProvider>
       <View style={{flex: 1 }}>
         <NavigationContainer ref={navigationRef}>
-          <Stack.Navigator headerMode="none">
+          <Stack.Navigator headerMode="none" mode="modal">
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Actions" component={Actions} />
           </Stack.Navigator>
