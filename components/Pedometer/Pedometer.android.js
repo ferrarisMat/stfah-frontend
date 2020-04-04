@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Pedometer } from "expo-legacy";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 export default class AndroidPedometer extends Component<{}> {
   state = {
@@ -59,7 +59,7 @@ export default class AndroidPedometer extends Component<{}> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <Text style={{ color: "blue" }}>Hello Louis 👋🏻</Text>
         <Text style={{ color: "blue" }}>
           Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}
@@ -74,13 +74,3 @@ export default class AndroidPedometer extends Component<{}> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 15,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "pink",
-  },
-});
