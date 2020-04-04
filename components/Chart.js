@@ -53,29 +53,27 @@ export default function Chart() {
         datasets: [
             {
                 data: [
-                TotalPointsPerDay[days[0]],
-                TotalPointsPerDay[days[1]],
-                TotalPointsPerDay[days[2]],
-                TotalPointsPerDay[days[3]],
-                TotalPointsPerDay[days[4]],
-                TotalPointsPerDay[days[5]],
-                TotalPointsPerDay[days[6]]
+                    TotalPointsPerDay[days[0]],
+                    TotalPointsPerDay[days[1]],
+                    TotalPointsPerDay[days[2]],
+                    TotalPointsPerDay[days[3]],
+                    TotalPointsPerDay[days[4]],
+                    TotalPointsPerDay[days[5]],
+                    TotalPointsPerDay[days[6]]
                 ]
             }
         ]
     }
     // Configuration object for the chart
     const chartConfig = {
-        backgroundColor: "#e26a00",
-        backgroundGradientFrom: "#fb8c00",
-        backgroundGradientTo: "#ffa726",
+        backgroundColor: "rgba(0,0,0,0)",
         decimalPlaces: 2, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         propsForDots: {
             r: "6",
             strokeWidth: "2",
-            stroke: "#ffa726"
+            stroke: "#FA9F42"
         }
     }
     const chartStyle = {
