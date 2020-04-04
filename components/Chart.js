@@ -1,6 +1,7 @@
 import React from "react";
 import { Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
+import Actions from "../data/actions";
 import UserData from "../data/userdata";
 
 export default function Chart() {
