@@ -1,20 +1,29 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import Navigation from "../components/Navigation";
+import ActionsData from "../data/actions";
 
 export default function ({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </Text>
-      <Navigation navigation={navigation} />
+      <View>
+        <Text>Add activity</Text>
+        {
+          ActionsData.forEach(action => {
+            if (action.type === "boolean") {
+              return (<>
+                <Text>Lol</Text>
+                <Button title="Add"
+                    onPress={() => Alert.alert('Simple Button pressed')}
+                  />
+              </>)
+            }
+          })
+        }
+      </View>
+      <View>
+        <Navigation navigation={navigation} />
+      </View>
     </View>
   );
 }
@@ -22,7 +31,7 @@ export default function ({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 15,
+    marginTop: 20,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "lightblue",
