@@ -37,8 +37,8 @@ export default function () {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <ScrollView>
-            <SafeAreaView style={styles.container}>
-              <View style={{ paddingLeft: 20, paddingRight: 20 }}>
+            <SafeAreaView style={styles.safeArea}>
+              <View style={{ paddingBottom: 50 }}>
                 <Text style={{ fontSize: 20, marginBottom: 20 }}>Add activity</Text>
                 {actions}
               </View>
@@ -53,7 +53,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "lightblue",
+    paddingTop: 50
+  },
+  safeArea: {
+    flex: 1,
+    backgroundColor: "lightblue",
     paddingTop: 50,
+    paddingLeft: 20,
+    paddingRight: 20
   },
   actionRow: {
     borderColor: '#000',
