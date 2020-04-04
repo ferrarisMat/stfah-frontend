@@ -6,10 +6,14 @@ import Chart from "../components/Chart";
 import SafeAreaView from 'react-native-safe-area-view';
 import { Objects } from '../styles/objects';
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [userName, updateUserName] = useState("");
 
   useEffect(() => { getNameFromStorage() }, []);
+
+  useEffect(() => { navigation.addListener('focus', () => {
+    getNameFromStorage();
+  }); }, []);
 
   const getNameFromStorage = async () => {
     try {
