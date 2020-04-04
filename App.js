@@ -6,10 +6,7 @@ import Chart from "./components/Chart";
 
 function App(){
   return (
-    <View>
-      <Pedometer />
-      <Chart />
-    </View>
+    <Pedometer />
   )
 };
 
