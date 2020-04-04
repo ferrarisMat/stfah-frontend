@@ -2,10 +2,12 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
+import Chart from "../components/Chart";
 
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
+      <Chart />
       <Pedometer />
       <Navigation navigation={navigation} />
     </View>

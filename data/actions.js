@@ -1,68 +1,57 @@
-export default [
-  {
-    "id": "steps",
+export default {
+  "steps": {
     "name": "Amount of steps",
     "scorePerUnit": 0.5,
     "type": "number"
   },
-  {
-    "id": "netflix",
+  "netflix": {
     "name": "Watching Netflix",
     "scorePerUnit": 50,
     "type": "number"
   },
-  {
-    "id": "supermarket",
+  "supermarket": {
     "name": "Go shopping",
     "scorePerUnit": -300,
     "type": "boolean"
   },
-  {
-    "id": "dog",
+  "dog": {
     "name": "walking the dog",
     "scorePerUnit": -150,
     "type": "boolean"
   },
-  {
-    "id": "sleep",
+  "sleep": {
     "name": "Hours of sleep",
     "scorePerUnit": 30,
     "type": "number"
   },
-  {
-    "id": "terrace",
+  "terrace": {
     "name": "Spending time on the terrace",
     "scorePerUnit": 20,
     "type": "number"
   },
-  {
-    "id": "garden",
+  "garden": {
     "name": "Gardening",
     "scorePerUnit": 30,
     "type": "number"
   },
-  {
-    "id": "medical",
+  "medical": {
     "name": "Medical appointment",
     "scorePerUnit": -200,
     "type": "boolean"
   },
-  {
-    "id": "bike",
+  "bike": {
     "name": "Bike ride",
     "scorePerUnit": -10,
     "type": "number"
   },
-  {
-    "id": "jogging",
+  "jogging": {
     "name": "Jogging",
     "scorePerUnit": -20,
     "type": "number"
   },
-  {
-    "id": "videogames",
+  "videogames": {
     "name": "Playing video games",
     "scorePerUnit": 1,
     "type": "number"
   }
-];
+};
