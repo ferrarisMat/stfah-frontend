@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import SafeAreaView from "react-native-safe-area-view";
 import {
   View,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TextInput,
   Button,
+  TouchableOpacity,
   AsyncStorage,
 } from "react-native";
 
@@ -64,48 +65,44 @@ export default function () {
         <View style={{ marginTop: 20 }}>
           <Text>Do you have a garden ?</Text>
           <View style={{ flexDirection: "row" }}>
-            <Button
-              title="yes"
-              style={!garden && { color: "#fff" }}
+            <TouchableOpacity
+              style={[styles.toggleButton, !garden && { backgroundColor: "#fff" }]}
               onPress={() => {
                   updateGarden(true);
                   updateValueInStorage("garden", true)
                 }
               }
-            />
-            <Button
-              title="no"
-              style={garden && { color: "#fff" }}
+            ><Text>Yes</Text></TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.toggleButton, garden && { backgroundColor: "#fff" }]}
               onPress={() => {
                   updateGarden(false);
                   updateValueInStorage("garden", false)
                 }
               }
-            />
+            ><Text>No</Text></TouchableOpacity>
           </View>
         </View>
 
         <View style={{ marginTop: 20 }}>
           <Text>Do you have a terrace ?</Text>
           <View style={{ flexDirection: "row" }}>
-            <Button
-              title="yes"
-              style={!terrace && { color: "#fff" }}
+            <TouchableOpacity
+              style={[styles.toggleButton, !terrace && { backgroundColor: "#fff" }]}
               onPress={() => {
                   updateTerrace(true);
                   updateValueInStorage("terrace", true)
                 }
               }
-            />
-            <Button
-              title="no"
-              style={terrace && { color: "#fff" }}
+            ><Text>Yes</Text></TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.toggleButton, terrace && { backgroundColor: "#fff" }]}
               onPress={() => {
                   updateTerrace(false);
                   updateValueInStorage("terrace", false)
                 }
               }
-            />
+            ><Text>No</Text></TouchableOpacity>
           </View>
         </View>
       </View>
@@ -118,7 +115,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: "lightgreen",
   },
   input: {
     width: '40%',
@@ -126,4 +122,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 4,
   },
+  toggleButton: {
+    padding: 10,
+    backgroundColor: '#9ED583'
+  }
 });
