@@ -12,7 +12,7 @@ import {
 export default function () {
   const [name, updateName] = useState("");
 
-  useEffect(() => { getNameFromStorage() }, ['name']);
+  useEffect(() => { getNameFromStorage() }, []);
 
   const updateNameInStorage = async () => {
     try {
