@@ -40,34 +40,39 @@ export class Navigation extends Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: 'space-between',
-    position: "absolute",
-    top: 0,
-    right: 0,
-    left: 0
+    width: '100%',
+    height: '100%'
   },
   buttonPlus: {
-    marginLeft: 'auto',
     width: 60,
     height: 60,
-    margin: 10,
     borderRadius: 30,
-    backgroundColor: "#F3533A",
+    backgroundColor: "white",
     lineHeight: 60,
+    position: "absolute",
+    bottom: 0,
+    marginLeft: -30,
+    left: '50%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    shadowColor: '#222',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10
   },
   buttonHome: {
     margin: 10,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: '100%'
   },
   buttonHomeText: {
     fontSize: 20,
     color: '#666'
   },
   buttonText: {
-    color: 'red'
+    fontSize: 30
   },
 });
