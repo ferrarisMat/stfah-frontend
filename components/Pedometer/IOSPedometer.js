@@ -1,8 +1,8 @@
-import React from "react";
-import { Pedometer } from 'expo-legacy';
+import React, {Component} from "react";
+import { Pedometer } from 'expo-sensors';
 import { StyleSheet, Text, View } from "react-native";
 
-export default class AndroidPedometer extends React.Component {
+export default class IOSPedometer extends Component<{}>  {
   state = {
     isPedometerAvailable: "checking",
     pastStepCount: 0,

@@ -1,12 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-// import IOSPedometer from './components/Pedometer/IOSPedometer';
-import AndroidPedometer from './components/Pedometer/AndroidPedometer';
-// import {IOSPedometer, AndroidPedometer} from './components/Pedometer';
+import { StyleSheet, Text, View, Platform } from "react-native";
+
+const Pedometer = Platform.select({
+  ios: () => require('./components/Pedometer/IOSPedometer'),
+  android: () => require('./components/Pedometer/AndroidPedometer'),
+})();
+
 
 function App(){
   return (
-    <AndroidPedometer />
+    <Pedometer />
   )
 };
 
