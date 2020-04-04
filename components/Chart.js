@@ -66,8 +66,9 @@ function formatDate(date){
                     key={ index }
                     cx={ x(index) }
                     cy={ y(value.value) }
-                    r={ 4 }
-                    stroke={ 'rgb(134, 65, 244)' }
+                    r={ 3 }
+                    stroke={ 'rgb(250, 159, 66)' }
+                    strokeWidth={2}
                     fill={ 'white' }
                 />
             ))
@@ -79,8 +80,9 @@ function formatDate(date){
         const Gradient = () => (
             <Defs key={'gradient'}>
                 <LinearGradient id={'gradient'} x1={'0'} y={'0%'} x2={'100%'} y2={'0%'}>
-                    <Stop offset={'0%'} stopColor={'rgb(134, 65, 244)'}/>
-                    <Stop offset={'100%'} stopColor={'rgb(66, 194, 244)'}/>
+                    <Stop offset={'0%'} stopColor={'rgb(250, 159, 66)'}/>
+                    <Stop offset={'65%'} stopColor={'rgb(250, 159, 66)'}/>
+                    <Stop offset={'100%'} stopColor={'rgb(243, 83, 58)'}/>
                 </LinearGradient>
             </Defs>
         )
@@ -96,14 +98,13 @@ function formatDate(date){
                 x2={ '100%' }
                 y1={ y(0) }
                 y2={ y(0) }
-                stroke={ 'grey' }
-                strokeDasharray={ [ 4, 8 ] }
-                strokeWidth={ 2 }
+                stroke={ '#FA9F42' }
+                strokeWidth={ 1 }
             />
         ))
 
         return(
-            <View style={{ height: 300, flexDirection: 'row' }}>
+            <View style={{ height: 200, flexDirection: 'row', width: 300 }}>
                     <YAxis
                         data={dataArea}
                         style={{ marginBottom: xAxisHeight }}
@@ -115,7 +116,7 @@ function formatDate(date){
                             data={dataArea}
                             contentInset={contentInset}
                             style={{ flex: 1, height: 200 }}
-                            svg={{ stroke: 'url(#gradient)' }}
+                            svg={{ stroke: 'url(#gradient)' , strokeWidth: 2 }}
                             yAccessor={({ item }) => item.value}
                         >
                             <Grid />
