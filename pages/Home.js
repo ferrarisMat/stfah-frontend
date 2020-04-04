@@ -7,7 +7,7 @@ export default function Home({ navigation }) {
   return (
     <View>
       <Pedometer />
-      {/* <Navigation navigation={navigation} /> */}
+      <Navigation navigation={navigation} />
     </View>
   );
 }
