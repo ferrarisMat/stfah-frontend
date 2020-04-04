@@ -1,4 +1,4 @@
-export default {
+
   "steps": {
     "name": "Amount of steps",
     "scorePerUnit": 0.5,
