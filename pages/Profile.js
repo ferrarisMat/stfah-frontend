@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SafeAreaView from 'react-native-safe-area-view';
 import {
   View,
   Text,
@@ -11,11 +12,11 @@ import {
 export default function () {
   const [name, updateName] = useState("");
 
-  useEffect(() => getNameFromStorage());
+  useEffect(() => { getNameFromStorage() }, ['name']);
 
-  const updateNameInStorage = async (newName) => {
+  const updateNameInStorage = async () => {
     try {
-      await AsyncStorage.setItem("name", newName);
+      await AsyncStorage.setItem("name", name);
     } catch (e) {
       console.log(e);
     }
@@ -33,22 +34,25 @@ export default function () {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>Your name</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => updateName(text)}
-        value={name}
-      />
-      <Button title="Save" onPress={updateNameInStorage} />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={{ flex: 1, paddingTop: 50}}>
+        <Text>Your name</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => updateName(text)}
+          value={name}
+        />
+        <Button title="Save" onPress={updateNameInStorage} />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
     backgroundColor: "lightgreen",
   },
   input: {
