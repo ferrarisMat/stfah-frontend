@@ -1,15 +1,13 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import SafeAreaView from 'react-native-safe-area-view';
-import Navigation from "../components/Navigation";
 
-export default function Home({ navigation }) {
+export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      <View style={{ flex: 1 }}>
         <Pedometer />
-        <Navigation navigation={navigation} />
       </View>
     </SafeAreaView>
   );
@@ -18,8 +16,8 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingLeft: 20,
+    paddingRight: 20,
     backgroundColor: "pink",
   },
 });

@@ -1,7 +1,6 @@
 import React from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet, Button, TextInput, Keyboard, ScrollView } from "react-native";
 import SafeAreaView from 'react-native-safe-area-view';
-import Navigation from "../components/Navigation";
 import ActionsData from "../data/actions";
 
 function BooleanAction(props) {
@@ -24,7 +23,7 @@ function NumberAction(props) {
   </View>)
 }
 
-export default function ({ navigation }) {
+export default function () {
   var actions = [];
   ActionsData.forEach((action, i) => {
     if (action.type === "boolean") {
@@ -43,7 +42,6 @@ export default function ({ navigation }) {
                 <Text style={{ fontSize: 20, marginBottom: 20 }}>Add activity</Text>
                 {actions}
               </View>
-              <Navigation navigation={navigation} />
             </SafeAreaView>
           </ScrollView>
         </View>
