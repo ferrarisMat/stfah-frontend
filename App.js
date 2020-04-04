@@ -1,10 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Platform } from "react-native";
-
-const Pedometer = Platform.select({
-  ios: () => require('./components/Pedometer/IOSPedometer'),
-  android: () => require('./components/Pedometer/AndroidPedometer'),
-})();
+import Pedometer from "./components/Pedometer/Pedometer";
 
 
 function App(){
