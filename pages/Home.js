@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1 }}>
-        <Chart />
         <Pedometer />
+        <Chart />
       </View>
     </SafeAreaView>
   );
