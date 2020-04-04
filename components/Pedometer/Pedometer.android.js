@@ -1,12 +1,12 @@
-import React, {Component} from "react";
-import { Pedometer } from 'expo-legacy';
+import React, { Component } from "react";
+import { Pedometer } from "expo-legacy";
 import { StyleSheet, Text, View } from "react-native";
 
 export default class AndroidPedometer extends Component<{}> {
   state = {
     isPedometerAvailable: "checking",
     pastStepCount: 0,
-    currentStepCount: 0
+    currentStepCount: 0,
   };
 
   componentDidMount() {
@@ -18,21 +18,21 @@ export default class AndroidPedometer extends Component<{}> {
   }
 
   _subscribe = () => {
-    this._subscription = Pedometer.watchStepCount(result => {
+    this._subscription = Pedometer.watchStepCount((result) => {
       this.setState({
-        currentStepCount: result.steps
+        currentStepCount: result.steps,
       });
     });
 
     Pedometer.isAvailableAsync().then(
-      result => {
+      (result) => {
         this.setState({
-          isPedometerAvailable: String(result)
+          isPedometerAvailable: String(result),
         });
       },
-      error => {
+      (error) => {
         this.setState({
-          isPedometerAvailable: "Could not get isPedometerAvailable: " + error
+          isPedometerAvailable: "Could not get isPedometerAvailable: " + error,
         });
       }
     );
@@ -41,12 +41,12 @@ export default class AndroidPedometer extends Component<{}> {
     const start = new Date();
     start.setDate(end.getDate() - 1);
     Pedometer.getStepCountAsync(start, end).then(
-      result => {
+      (result) => {
         this.setState({ pastStepCount: result.steps });
       },
-      error => {
+      (error) => {
         this.setState({
-          pastStepCount: "Could not get stepCount: " + error
+          pastStepCount: "Could not get stepCount: " + error,
         });
       }
     );
@@ -60,14 +60,16 @@ export default class AndroidPedometer extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{color: 'blue'}}>Hello Louis 👋🏻</Text>
-        <Text style={{color: 'blue'}}>
+        <Text style={{ color: "blue" }}>Hello Louis 👋🏻</Text>
+        <Text style={{ color: "blue" }}>
           Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}
         </Text>
-        <Text style={{color: 'blue'}}>
+        <Text style={{ color: "blue" }}>
           Steps taken in the last 24 hours: {this.state.pastStepCount}
         </Text>
-        <Text style={{color: 'blue'}}>Walk! And watch this go up: {this.state.currentStepCount}</Text>
+        <Text style={{ color: "blue" }}>
+          Walk! And watch this go up: {this.state.currentStepCount}
+        </Text>
       </View>
     );
   }
@@ -79,6 +81,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: 'pink',
-  }
+    backgroundColor: "pink",
+  },
 });
