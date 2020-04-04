@@ -1,13 +1,19 @@
-import React from "react";
-import { StyleSheet, Text, View, Platform } from "react-native";
-import Pedometer from "./components/Pedometer/Pedometer";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Home from "./pages/Home";
+import Actions from "./pages/Actions";
 import Chart from "./components/Chart";
 
+const Stack = createStackNavigator();
 
-function App(){
+export default function App() {
   return (
-    <Pedometer />
-  )
-};
-
-export default App;
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Actions" component={Actions} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
