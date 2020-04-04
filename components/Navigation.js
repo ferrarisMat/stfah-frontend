@@ -24,16 +24,19 @@ export class Navigation extends Component<{}> {
     }
   }
 
+  addAction() {
+    if (this.state.activeRoute === 'Home'){
+      return <TouchableOpacity style={styles.buttonPlus} onPress={() => this.updateNav('Actions')}>
+          <Text style={styles.buttonText}>➕</Text>
+        </TouchableOpacity>
+    }
+  }
 
   render() {
     return (
       <View style={styles.container} pointerEvents="box-none">
-        {
-          this.returnHome()
-        }
-        <TouchableOpacity style={styles.buttonPlus} onPress={() => this.updateNav('Actions')}>
-          <Text style={styles.buttonText}>➕</Text>
-        </TouchableOpacity>
+        {this.returnHome()}
+        {this.addAction()}
       </View>
   )};
 }

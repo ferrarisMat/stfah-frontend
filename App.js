@@ -15,7 +15,7 @@ export default function App() {
     <SafeAreaProvider>
       <View style={{flex: 1 }}>
         <NavigationContainer ref={navigationRef}>
-          <Stack.Navigator headerMode="none">
+          <Stack.Navigator headerMode="none" mode="modal">
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Actions" component={Actions} />
           </Stack.Navigator>
