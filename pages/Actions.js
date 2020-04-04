@@ -25,13 +25,13 @@ function NumberAction(props) {
 
 export default function () {
   var actions = [];
-  ActionsData.forEach((action, i) => {
-    if (action.type === "boolean") {
-      actions.push(<BooleanAction action={action} key={i}></BooleanAction>);
-    } else if (action.type === "number") {
-      actions.push(<NumberAction action={action} key={i}></NumberAction>);
+  for (const key in ActionsData) {
+    if (ActionsData[key].type === "boolean") {
+      actions.push(<BooleanAction action={ActionsData[key]} key={key}></BooleanAction>);
+    } else if (ActionsData[key].type === "number") {
+      actions.push(<NumberAction action={ActionsData[key]} key={key}></NumberAction>);
     }
-  })
+  }
 
   return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
