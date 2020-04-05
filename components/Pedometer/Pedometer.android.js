@@ -71,7 +71,7 @@ export default class AndroidPedometer extends Component<{}> {
       <View style={styles.card}>
         <Text style={[Styles.smallTitle, {color: 'white'}]}>💡 Daily tip</Text>
         <View style={{opacity:0.3, backgroundColor: 'white', height: 1, width: '100%', marginTop: 10, marginBottom: 12}}></View>
-        <Text style={[Styles.body, {color: 'white'}]}>
+        <Text style={[Styles.bodyLarge, {color: 'white'}]}>
         You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
         </Text>
       </View>

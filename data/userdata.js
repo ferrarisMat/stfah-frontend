@@ -36,7 +36,27 @@ export default [
   },
   {
     "date": "2020-03-31T09:15:30.813Z",
-    "action": "netflix",
+    "action": "terrace",
     "value": 4
+  },
+  {
+    "date": "2020-04-02T09:15:30.813Z",
+    "action": "jogging",
+    "value": 60
+  },
+  {
+    "date": "2020-04-01T09:15:30.813Z",
+    "action": "bike",
+    "value": 89
+  },
+  {
+    "date": "2020-03-31T09:15:30.813Z",
+    "action": "supermarket",
+    "value": true
+  },
+  {
+    "date": "2020-03-31T09:15:30.813Z",
+    "action": "garden",
+    "value": true
   }
 ];

@@ -72,7 +72,7 @@ export default class IOSPedometer extends Component<{}> {
       <View style={styles.card}>
         <Text style={[Styles.smallTitle, {color: 'white'}]}>💡 Daily tip</Text>
         <View style={{opacity:0.3, backgroundColor: 'white', height: 1, width: '100%', marginTop: 10, marginBottom: 12}}></View>
-        <Text style={[Styles.body, {color: 'white'}]}>
+        <Text style={[Styles.bodyLarge, {color: 'white'}]}>
         You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
         </Text>
       </View>
@@ -82,7 +82,10 @@ export default class IOSPedometer extends Component<{}> {
 
 const styles = StyleSheet.create({
   card: {
-    padding: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 20,
     borderRadius: 4,
     backgroundColor: "#8AD879",
     fontSize: 14,
