@@ -5,7 +5,9 @@ import ChartMonth from "../components/Chart/ChartMonth";
 import ChartButtons from "../components/Chart/ChartButtons";
 
  export default class Charts extends React.PureComponent {
+
     render() {
+
         return(
             <View>
                 <ChartButtons />

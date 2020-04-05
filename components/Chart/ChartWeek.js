@@ -16,7 +16,7 @@ function formatDate(date){
     return date
 }
 
-export default class Charts extends React.PureComponent {
+export default class ChartWeek extends React.PureComponent {
     render() {
         // Initiate the array with total points per day
         let totalPointsPerDay = [];

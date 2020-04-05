@@ -2,8 +2,9 @@ import React from "react";
 import { Button, View, TouchableOpacity, Text, StyleSheet } from "react-native";
 
 export default function(props) {
+
     return(
-        <TouchableOpacity onPress={props.changeGraphView} style={styles.button}> 
+        <TouchableOpacity onPress={props.onPress} style={[styles.button, props.isSelected && { backgroundColor: '#FFFFFF', shadowColor: "#000", shadowOffset: { width: 0, height: 7, }, shadowOpacity: 0.2, shadowRadius: 9.51, elevation: 4, }]}> 
             <Text style={styles.text}>
                 {props.text}
             </Text>
@@ -12,13 +13,10 @@ export default function(props) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      borderRadius: 4,
-      borderWidth: 0.5,
-      borderColor: '#d6d7da',
-    },
     button: {
-        width: '50%'
+        width: '50%',
+        padding: 8,
+        borderRadius: 4
     },
     text: {
         width: '100%',
