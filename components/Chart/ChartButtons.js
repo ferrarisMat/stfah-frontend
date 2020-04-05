@@ -11,18 +11,16 @@ export default function(props) {
                 onPress={() => {
                     props.updateMonth(false);
                     props.updateWeek(true);
-                    props.changeGraphView;
                 }}
-                isSelected={isWeek}
+                isSelected={props.isWeek}
             />
             <ChartButton
                 text="M"
                 onPress={() => {
                     props.updateMonth(true);
                     props.updateWeek(false);
-                    props.changeGraphView;
                 }}
-                isSelected={isMonth}
+                isSelected={props.isMonth}
             />
         </View>
     )

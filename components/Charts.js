@@ -10,15 +10,7 @@ import UserData from "../data/userdata";
 let totalPointsPerDay = {};
 let lastDay; // Last day of the week
 const currentMonth = (new Date()).getMonth()+1; // The current month
-const chartData = [];
-
-// Variable to control which kind of chart is represented
-const [isWeek, updateWeek] = useState(true);
-const [isMonth, updateMonth] = useState(false);
-
-const changeGraphView = function() {
-    console.log('ok');
-}
+let chartData = [];
 
 // Formatting the date
 function formatDate(date){
@@ -76,7 +68,6 @@ function initiateArrayDataMonth(array) {
         const day = formatDate(today);
         // If the day is in the interval of the current month
         if(today.getMonth()+1 === currentMonth) {
-            console.log(user);
             // If the value of the action is a boolean
             if(Actions[user.action].type === "boolean" && user.value === true) {
                 array[day] += Actions[user.action].scorePerUnit;
@@ -90,11 +81,12 @@ function initiateArrayDataMonth(array) {
     return array;
 }
 
-function FormatDataArray(array) {
+function FormatDataArray(object) {
+    let array = [];
     // Formatting the array
-    for(const key in totalPointsPerDay) {
+    for(const key in object) {
         array.push({
-            value: totalPointsPerDay[key],
+            value: object[key],
             label: key
         })
     }
@@ -102,6 +94,10 @@ function FormatDataArray(array) {
 }
 
  export default function() {
+    // Variable to control which kind of chart is represented
+    const [isWeek, updateWeek] = useState(true);
+    const [isMonth, updateMonth] = useState(false);
+
         if(isWeek) {
             chartData = FormatDataArray(initiateArrayDataWeek(totalPointsPerDay));
 
@@ -112,7 +108,6 @@ function FormatDataArray(array) {
                         updateWeek={updateWeek}
                         isMonth={isMonth}
                         updateMonth={updateMonth}
-                        changeGraphView={changeGraphView}
                     />
                     <View style={{ height: 200, flexDirection: 'row', width: 300 }}>
                         <Chart 
@@ -132,7 +127,6 @@ function FormatDataArray(array) {
                         updateWeek={updateWeek}
                         isMonth={isMonth}
                         updateMonth={updateMonth}
-                        changeGraphView={changeGraphView}
                     />
                     <View style={{ height: 200, flexDirection: 'row', width: 300 }}>
                         <Chart 
