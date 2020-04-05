@@ -14,9 +14,9 @@ function formatDate(date){
     if(mm<10) {mm='0'+mm}
     date = dd+'/'+mm;
     return date
- }
+}
 
- export default class Charts extends React.PureComponent {
+export default class Charts extends React.PureComponent {
     render() {
         // Initiate the array with total points per day
         let totalPointsPerDay = [];
