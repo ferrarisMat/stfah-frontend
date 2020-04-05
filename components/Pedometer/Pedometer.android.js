@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Pedometer } from "expo-legacy";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
 export default class AndroidPedometer extends Component<{}> {
   state = {
@@ -57,20 +57,31 @@ export default class AndroidPedometer extends Component<{}> {
     this._subscription = null;
   };
 
+  getFeedbackMessage = () => {
+    const steps = this.state.pastStepCount;
+
+    if (steps < 1000) return 'You barely moved at all today ! Good job, keep going.'
+    if (steps < 5000) return 'That\'s a lot of steps. Slow down, cowboy.'
+    if (steps < 10000) return 'You\'re moving a lot. Are you alright ?'
+    return 'What are you doing ? You don\'t really get this do you ?'
+  };
+
   render() {
     return (
       <View>
-        <Text style={{ color: "blue" }}>Hello Louis 👋🏻</Text>
-        <Text style={{ color: "blue" }}>
-          Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}
-        </Text>
-        <Text style={{ color: "blue" }}>
-          Steps taken in the last 24 hours: {this.state.pastStepCount}
-        </Text>
-        <Text style={{ color: "blue" }}>
-          Walk! And watch this go up: {this.state.currentStepCount}
+        <Text style={styles.card}>
+        ℹ️  You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
         </Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  card: {
+    padding: 10,
+    borderRadius: 4,
+    backgroundColor: "#9ED583",
+    fontSize: 14
+  }
+})

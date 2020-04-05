@@ -57,18 +57,20 @@ export default class IOSPedometer extends Component<{}> {
     this._subscription = null;
   };
 
+  getFeedbackMessage = () => {
+    const steps = this.state.pastStepCount;
+
+    if (steps < 1000) return 'You barely moved at all today ! Good job, keep going.'
+    if (steps < 5000) return 'That\'s a lot of steps. Slow down, cowboy.'
+    if (steps < 10000) return 'You\'re moving a lot. Are you alright ?'
+    return 'What are you doing ? You don\'t really get this do you ?'
+  };
+
   render() {
     return (
       <View>
-        <Text style={{ color: "blue" }}>Hello Louis 👋🏻</Text>
-        <Text style={{ color: "blue" }}>
-          Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}
-        </Text>
-        <Text style={{ color: "blue" }}>
-          Steps taken in the last 24 hours: {this.state.pastStepCount}
-        </Text>
-        <Text style={{ color: "blue" }}>
-          Walk! And watch this go up: {this.state.currentStepCount}
+        <Text>
+        ℹ️ You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
         </Text>
       </View>
     );

@@ -76,7 +76,7 @@ export default function Chart() {
   });
 
   return(
-    <View style={[{ paddingTop: 18, flex: 1 }]}>
+    <View style={[{ paddingTop: 10, flex: 1 }]}>
       <ScrollView showsHorizontalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50, marginLeft: 18}} snapToInterval={Device_Width - 36} decelerationRate="fast" horizontal={true}>
         {blocks}
       </ScrollView>
