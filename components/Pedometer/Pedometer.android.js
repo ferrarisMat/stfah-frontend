@@ -68,9 +68,11 @@ export default class AndroidPedometer extends Component<{}> {
 
   render() {
     return (
-      <View>
-        <Text style={styles.card}>
-        ℹ️  You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
+      <View style={styles.card}>
+        <Text style={[Styles.smallTitle, {color: 'white'}]}>💡 Daily tip</Text>
+        <View style={{opacity:0.3, backgroundColor: 'white', height: 1, width: '100%', marginTop: 10, marginBottom: 12}}></View>
+        <Text style={[Styles.body, {color: 'white'}]}>
+        You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
         </Text>
       </View>
     );
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
   card: {
     padding: 10,
     borderRadius: 4,
-    backgroundColor: "#9ED583",
+    backgroundColor: "#8AD879",
     fontSize: 14,
     shadowColor: 'rgba(0,0,0,0.2)',
     shadowOffset: { width: 0, height: 16 },
