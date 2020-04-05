@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: "pink",
+    backgroundColor: "white",
   }
 });

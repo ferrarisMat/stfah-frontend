@@ -121,7 +121,7 @@ function formatDate(date){
                             data={dataArea}
                             contentInset={contentInset}
                             style={{ flex: 1, height: 200 }}
-                            svg={{ stroke: 'url(#gradient)' , strokeWidth: 2 }}
+                            svg={{ stroke: 'url(#gradient)' , strokeWidth: 3 }}
                             yAccessor={({ item }) => item.value}
                         >
                             <Grid />
