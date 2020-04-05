@@ -89,11 +89,7 @@ function ActionCard(props){
         marginTop: 24
       }}
     >
-      <View style={{
-        ...style.actionCard,
-        backgroundColor: background(),
-        width: isExpanded ? '100%' : 150,
-      }}>
+      <View style={[style.actionCard, {backgroundColor: background(),width: isExpanded ? '100%' : 150}]}>
         <View style={style.header}>
           <View style={{flex: 0, flexDirection: 'row', alignItems: 'center'}}>
             <Text style={style.titleHeader}>{actionName}</Text>
@@ -102,8 +98,8 @@ function ActionCard(props){
           {(!isEditing && !isExpanded) && <EditIcon />}
           {(isExpanded || isEditing) && <CloseIcon />}
         </View>
-        <View style={{flex: 0, flexDirection: "row", alignItems: "center", justifyContent: "space-between"}}>
-          <View style={{flex: 0, flexDirection: "row", alignItems: 'baseline'}}>
+        <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between"}}>
+          <View style={{flexDirection: "row", alignItems: 'baseline'}}>
             {!isEditing ? (
               <Text style={{fontSize: 32, fontWeight: "bold", color: "#ffffff"}}>{actionValue}</Text>
             ) : <TextInput autoFocus value={actionValue} style={{color: "#ffffff", fontSize: 32}} onChange={handleValueChange} />}
@@ -131,11 +127,13 @@ function ActionCard(props){
 
 const style = StyleSheet.create({
   actionCard: {
-    padding: 12,
+    paddingTop: 12,
+    paddingBottom: 12,
+    paddingLeft: 12,
+    paddingRight: 12,
     borderRadius: 5,
     width: 150,
     height: 150,
-    flex: 0,
     flexWrap: 'nowrap',
     justifyContent: 'space-between',
   },
@@ -144,7 +142,6 @@ const style = StyleSheet.create({
     height: 30,
   },
   header: {
-    flex: 0,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

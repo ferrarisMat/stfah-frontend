@@ -7,7 +7,7 @@ import { StyleSheet } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import RandomTip from "../components/RandomTip";
 
-var Device_Width = Dimensions.get('window').width;
+var Device_Width = Math.min(Dimensions.get('window').width, 500);
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function readableDate (date) {
@@ -54,7 +54,7 @@ export default function Chart() {
       let marginTop = i === 0 ? 0 : 12;
       const value = Actions[data.action].scorePerUnit * data.value;
       rows.push(
-        <View style={[{marginTop: marginTop}, OwnStyles.block, OwnStyles.shadow]}>
+        <View key={i} style={[{marginTop: marginTop}, OwnStyles.block, OwnStyles.shadow]}>
           <View style={OwnStyles.row}>
             <Text style={[Styles.smallTitle, {color: 'black'}]}>{Actions[data.action].name}</Text>
           </View>
@@ -65,7 +65,7 @@ export default function Chart() {
 
     const blockWidth = Device_Width - 36
     blocks.push(
-      <View style={[OwnStyles.shadow, {paddingLeft: paddingLeft, paddingRight: paddingRight, width: blockWidth, marginRight: i === days.length - 1 ? 36:0 }]}>
+      <View key={i} style={[OwnStyles.shadow, {paddingLeft: paddingLeft, paddingRight: paddingRight, width: blockWidth, marginRight: i === days.length - 1 ? 36:0 }]}>
         <View style={OwnStyles.dayBlock}>
           <View>
             <Text style={[Styles.body, {color: 'white'}]}>{monthNames[when.getMonth()]} {(when.getDate()<10?'0':'')+when.getDate()}</Text>
@@ -85,7 +85,7 @@ export default function Chart() {
       <View style={{ marginTop: 10, paddingLeft: 24, paddingRight: 24 }}>
         <RandomTip />
       </View>
-      <ScrollView showsHorizontalScrollIndicator={false} contentContainerStyle={{marginTop: 12, paddingBottom: 50, marginLeft: 18}} snapToInterval={Device_Width - 36} decelerationRate="fast" horizontal={true}>
+      <ScrollView contentContainerStyle={{marginTop: 12, paddingBottom: 50, marginLeft: 18}} snapToInterval={Device_Width - 36} decelerationRate="fast" horizontal={true}>
         {blocks}
       </ScrollView>
     </View>

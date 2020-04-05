@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "stfah-frontend",
-    "slug": "stfah-frontend",
+    "name": "Couchr",
+    "slug": "couchr",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Application made during a hackathong over a weekend",
+    "githubUrl": "https://github.com/ferrarisMat/stfah-frontend/"
   }
 }

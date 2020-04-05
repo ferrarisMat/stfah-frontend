@@ -73,6 +73,7 @@ export default function () {
   return (
       // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
+          <View style={styles.subcontainer}>
           {data.map((item, i) => {
             return (
               <ActionCard
@@ -95,6 +96,7 @@ export default function () {
             </SafeAreaView>
           </ScrollView> */}
         </View>
+      </View>
       // </TouchableWithoutFeedback>
   );
 }
@@ -103,6 +105,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+  },
+  subcontainer: {
     paddingTop: 150,
     paddingLeft: 20,
     paddingRight: 20,

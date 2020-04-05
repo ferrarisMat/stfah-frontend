@@ -26,7 +26,7 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{flex: 1}}>
         <SafeAreaView style={[Styles.container]}>
           <Text style={[Styles.title, {marginTop: 20, marginRight: 20}]}>Hi {userName}, here is your inactivity recap :</Text>
           <View style={[Styles.textRow, {marginTop: 10}]}><Text style={Styles.redTitle}>-60</Text><Text style={Styles.body}> points today. You can do better !</Text></View>

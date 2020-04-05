@@ -30,8 +30,8 @@ export default function App() {
     )
   } else {
     return (
-      <SafeAreaProvider>
-        <View style={{flex: 1 }}>
+      <SafeAreaProvider style={{ justifyContent: 'center' }}>
+        <View style={{flex: 1,maxWidth:600, marginLeft:'auto', marginRight: 'auto', width: '100%' }}>
           <NavigationContainer ref={navigationRef}>
             <Stack.Navigator headerMode="none" mode="modal">
               <Stack.Screen name="Home" component={Home} />

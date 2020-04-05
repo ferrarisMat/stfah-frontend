@@ -71,7 +71,7 @@ export default class Chart extends React.PureComponent {
                             <HorizontalLine/>
                         </LineChart>
                         <XAxis
-                            style={{ height: xAxisHeight, widht: '40%' }}
+                            style={{ height: xAxisHeight, width: '40%' }}
                             data={this.props.chartData}
                             formatLabel={(value) => value}
                             contentInset={{ contentInset }}
