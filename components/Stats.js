@@ -4,6 +4,7 @@ import { Styles } from '../styles/styles';
 import Actions from "../data/actions";
 import UserData from "../data/userdata";
 import { StyleSheet } from "react-native";
+import Pedometer from "../components/Pedometer/Pedometer";
 
 var Device_Width = Dimensions.get('window').width;
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -77,7 +78,10 @@ export default function Chart() {
 
   return(
     <View style={[{ paddingTop: 10, flex: 1 }]}>
-      <ScrollView showsHorizontalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50, marginLeft: 18}} snapToInterval={Device_Width - 36} decelerationRate="fast" horizontal={true}>
+      <View style={{ paddingLeft: 24, paddingRight: 24 }}>
+        <Pedometer />
+      </View>
+      <ScrollView showsHorizontalScrollIndicator={false} contentContainerStyle={{marginTop: 12, paddingBottom: 50, marginLeft: 18}} snapToInterval={Device_Width - 36} decelerationRate="fast" horizontal={true}>
         {blocks}
       </ScrollView>
     </View>

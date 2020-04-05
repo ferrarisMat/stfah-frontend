@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Pedometer } from "expo-sensors";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
 export default class IOSPedometer extends Component<{}> {
   state = {
@@ -68,11 +68,24 @@ export default class IOSPedometer extends Component<{}> {
 
   render() {
     return (
-      <View>
+      <View style={styles.card}>
         <Text>
-        ℹ️ You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
+        ℹ️  You took {this.state.pastStepCount} steps in the last 24 hours. {this.getFeedbackMessage()}
         </Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  card: {
+    padding: 10,
+    borderRadius: 4,
+    backgroundColor: "#9ED583",
+    fontSize: 14,
+    shadowColor: 'rgba(0,0,0,0.2)',
+    shadowOffset: { width: 0, height: 16 },
+    shadowRadius: 12,
+    shadowOpacity: 1
+  }
+})
