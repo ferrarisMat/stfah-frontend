@@ -15,7 +15,9 @@ const Stack = createStackNavigator();
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    'Rosario Light': require('./assets/fonts/Rosario_Light.ttf')
+    'Rosario Bold': require('./assets/fonts/Rosario-Bold.ttf'),
+    'Rosario Medium': require('./assets/fonts/Rosario-Medium.ttf'),
+    'Rosario Regular': require('./assets/fonts/Rosario-Regular.ttf')
   });
 };
 

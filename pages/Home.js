@@ -4,7 +4,7 @@ import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
 import Chart from "../components/Chart";
 import SafeAreaView from 'react-native-safe-area-view';
-import { Objects } from '../styles/objects';
+import { Styles } from '../styles/styles';
 
 export default function Home({ navigation }) {
   const [userName, updateUserName] = useState("");
@@ -27,7 +27,9 @@ export default function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1 }}>
-        <Text style={Objects.title}>{userName}</Text>
+        <Text style={Styles.title}>{userName}</Text>
+        <Text style={{marginTop: 10}}>Total</Text>
+        <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
         <Pedometer />
         <Chart />
       </View>
@@ -40,6 +42,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: "pink",
+    backgroundColor: "white",
   }
 });
