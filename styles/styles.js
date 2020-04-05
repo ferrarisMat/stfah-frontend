@@ -22,6 +22,10 @@ export let Styles = StyleSheet.create({
   // ==========
   // LAYOUT
   // ==========
+  container: {
+    paddingLeft: 25,
+    paddingRight: 25
+  },
   textRow: {
     flexDirection: 'row',
     alignItems: 'baseline'

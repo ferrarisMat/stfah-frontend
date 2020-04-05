@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, AsyncStorage } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
 import Chart from "../components/Chart";
+import Stats from "../components/Stats";
 import SafeAreaView from 'react-native-safe-area-view';
 import { Styles } from '../styles/styles';
 
@@ -26,13 +27,14 @@ export default function Home({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: 1 }}>
+      <View style={Styles.container}>
         <Text style={Styles.title}>{userName}</Text>
         <Text style={{marginTop: 10}}>Total</Text>
         <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
         <Pedometer />
         <Chart />
       </View>
+      <Stats />
     </SafeAreaView>
   );
 }
@@ -40,8 +42,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
+    flexDirection: 'column',
     backgroundColor: "white",
   }
 });
