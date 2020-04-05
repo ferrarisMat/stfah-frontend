@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, AsyncStorage } from "react-native";
+import { View, StyleSheet, Text, AsyncStorage, ScrollView } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
 import Chart from "../components/Chart";
@@ -27,16 +27,18 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={Styles.container}>
-        <Text style={Styles.title}>{userName}</Text>
-        <Text style={{marginTop: 10}}>Total</Text>
-        <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
-        <Pedometer />
-        <Chart />
-      </SafeAreaView>
-      <SafeAreaView style={{flex: 1, backgroundColor: '#F4F4F4'}}>
-        <Stats />
-      </SafeAreaView>
+      <ScrollView>
+        <SafeAreaView style={Styles.container}>
+          <Text style={Styles.title}>{userName}</Text>
+          <Text style={{marginTop: 10}}>Total</Text>
+          <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
+          <Pedometer />
+          <Chart />
+        </SafeAreaView>
+        <SafeAreaView style={{flex: 1, backgroundColor: '#F4F4F4'}}>
+          <Stats />
+        </SafeAreaView>
+      </ScrollView>
     </View>
   );
 }
@@ -44,6 +46,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    paddingTop: 20
   }
 });
