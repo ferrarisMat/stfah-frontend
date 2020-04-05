@@ -2,6 +2,7 @@ import React from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet, Button, TextInput, Keyboard, ScrollView } from "react-native";
 import SafeAreaView from 'react-native-safe-area-view';
 import ActionsData from "../data/actions";
+import ActionCard from '../components/ActionCard';
 
 function BooleanAction(props) {
   return (<View style={styles.actionRow}>
@@ -23,6 +24,42 @@ function NumberAction(props) {
   </View>)
 }
 
+
+const data = [
+  {
+    actionName: 'Netflix',
+    isGoodAction: true,
+    value: 32,
+    valueType: 'hours',
+    actionCTAcontent: 'Watching',
+    actionType: 'text',
+  },
+  {
+    actionName: 'Gaming',
+    isGoodAction: true,
+    value: 12,
+    valueType: 'hours',
+    actionCTAcontent: 'Playing',
+    actionType: 'text',
+  },
+  {
+    actionName: 'Steps',
+    isGoodAction: false,
+    value: 324,
+    valueType: 'steps',
+    actionCTAcontent: undefined,
+    actionType: 'text',
+  },
+  {
+    actionName: 'Jogging',
+    isGoodAction: false,
+    value: 30,
+    valueType: 'mins',
+    actionCTAcontent: 'Running',
+    actionType: 'text',
+  },
+]
+
 export default function () {
   var actions = [];
   for (const key in ActionsData) {
@@ -34,18 +71,31 @@ export default function () {
   }
 
   return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <ScrollView>
+          {data.map((item, i) => {
+            return (
+              <ActionCard
+                key={`${item.actionName + i}`}
+                actionName={item.actionName}
+                isGoodAction={item.isGoodAction}
+                value={item.value}
+                valueType={item.valueType}
+                actionCTAcontent={item.actionCTAcontent}
+                actionType={item.actionType}
+              />
+            )
+          })}
+          {/* <ScrollView>
             <SafeAreaView style={styles.safeArea}>
               <View style={{ paddingBottom: 50 }}>
                 <Text style={{ fontSize: 20, marginBottom: 20 }}>Add activity</Text>
                 {actions}
               </View>
             </SafeAreaView>
-          </ScrollView>
+          </ScrollView> */}
         </View>
-      </TouchableWithoutFeedback>
+      // </TouchableWithoutFeedback>
   );
 }
 
@@ -53,7 +103,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "lightblue",
-    paddingTop: 50
+    paddingTop: 150,
+    paddingLeft: 20,
+    paddingRight: 20,
+    position: 'relative',
   },
   safeArea: {
     flex: 1,
