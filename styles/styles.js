@@ -5,8 +5,8 @@ export let Styles = StyleSheet.create({
   // TEXTS
   // ==========
   title: {
-    fontSize: 32,
-    color: 'black',
+    fontSize: 24,
+    color: '#2F4F4F',
     fontFamily: 'Rosario Bold'
   },
   smallTitle: {

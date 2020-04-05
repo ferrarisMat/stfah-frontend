@@ -28,7 +28,7 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
       <ScrollView>
         <SafeAreaView style={[Styles.container]}>
-          <Text style={[Styles.title, {marginTop: 20}]}>{userName}</Text>
+          <Text style={[Styles.title, {marginTop: 20, marginRight: 20}]}>Hi {userName}, here is your inactivity recap :</Text>
           <Text style={{marginTop: 10}}>Total</Text>
           <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
           <Charts />
