@@ -42,9 +42,9 @@ export default function () {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ paddingTop: 50 }}>
+      <View >
         <View>
-          <Text>Your name</Text>
+          <Text style={{marginTop: 50}}>Your name</Text>
           <View style={{ flexDirection: "row" }}>
             <TextInput
               style={styles.input}
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 20,
     paddingRight: 20,
+    backgroundColor: 'white'
   },
   input: {
     width: '40%',

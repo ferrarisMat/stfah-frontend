@@ -86,6 +86,7 @@ function ActionCard(props){
         shadowOpacity: 0.32,
         shadowRadius: 5.46,
         elevation: 9,
+        marginTop: 24
       }}
     >
       <View style={{

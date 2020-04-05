@@ -102,15 +102,18 @@ export default function () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "lightblue",
+    backgroundColor: "white",
     paddingTop: 150,
     paddingLeft: 20,
     paddingRight: 20,
     position: 'relative',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
   },
   safeArea: {
     flex: 1,
-    backgroundColor: "lightblue",
+    backgroundColor: "white",
     paddingTop: 50,
     paddingLeft: 20,
     paddingRight: 20
