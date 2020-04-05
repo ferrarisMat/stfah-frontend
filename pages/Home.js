@@ -1,26 +1,52 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, Text, AsyncStorage, ScrollView } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
-import Chart from "../components/Charts";
+import Charts from "../components/Charts";
+import Stats from "../components/Stats";
 import SafeAreaView from 'react-native-safe-area-view';
+import { Styles } from '../styles/styles';
 
-export default function Home() {
+export default function Home({ navigation }) {
+  const [userName, updateUserName] = useState("");
+
+  useEffect(() => { getNameFromStorage() }, []);
+
+  useEffect(() => { navigation.addListener('focus', () => {
+    getNameFromStorage();
+  }); }, []);
+
+  const getNameFromStorage = async () => {
+    try {
+      const value = await AsyncStorage.getItem("name");
+      updateUserName(value);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{ flex: 1 }}>
-        <Pedometer />
-        <Chart />
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <ScrollView>
+        <SafeAreaView style={[Styles.container]}>
+          <Text style={[Styles.title, {marginTop: 20}]}>{userName}</Text>
+          <Text style={{marginTop: 10}}>Total</Text>
+          <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
+          <Pedometer />
+          <Charts />
+        </SafeAreaView>
+        <SafeAreaView style={{flex: 1, backgroundColor: '#F4F4F4', marginTop: 20}}>
+          <Stats />
+        </SafeAreaView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
-    backgroundColor: "pink",
+    flexDirection: 'column',
+    backgroundColor: 'white'
   }
 });
