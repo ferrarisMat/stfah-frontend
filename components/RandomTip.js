@@ -9,7 +9,7 @@ import { Styles } from '../styles/styles';
 
 const tips = [
     'Save some steps by watching TV from your toilets.',
-    'The light from your screens is an effective replacement for sunlight.',
+    'The light from your screen is an effective replacement for sunlight.',
     'Did you know you can reuse the same underwear up to 3 days ?'
 ]
 
