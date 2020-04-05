@@ -7,7 +7,7 @@ export default function(props) {
     return (
         <View style={{ flexDirection: "row", backgroundColor: '#F4F4F4', padding: 1, borderRadius: 4, marginTop: 20 }}>
             <ChartButton
-                text="W"
+                text="Week"
                 onPress={() => {
                     props.updateMonth(false);
                     props.updateWeek(true);
@@ -15,7 +15,7 @@ export default function(props) {
                 isSelected={props.isWeek}
             />
             <ChartButton
-                text="M"
+                text="Month"
                 onPress={() => {
                     props.updateMonth(true);
                     props.updateWeek(false);
