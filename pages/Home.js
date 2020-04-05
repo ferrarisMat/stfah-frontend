@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text, AsyncStorage, ScrollView } from "react-native";
 import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
-import Chart from "../components/Chart";
+import Charts from "../components/Charts";
 import Stats from "../components/Stats";
 import SafeAreaView from 'react-native-safe-area-view';
 import { Styles } from '../styles/styles';
@@ -33,7 +33,7 @@ export default function Home({ navigation }) {
           <Text style={{marginTop: 10}}>Total</Text>
           <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
           <Pedometer />
-          <Chart />
+          <Charts />
         </SafeAreaView>
         <SafeAreaView style={{flex: 1, backgroundColor: '#F4F4F4', marginTop: 20}}>
           <Stats />

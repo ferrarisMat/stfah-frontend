@@ -11,12 +11,12 @@ export default {
   },
   "supermarket": {
     "name": "Go shopping",
-    "scorePerUnit": -300,
+    "scorePerUnit": -100,
     "type": "boolean"
   },
   "dog": {
     "name": "walking the dog",
-    "scorePerUnit": -150,
+    "scorePerUnit": -75,
     "type": "boolean"
   },
   "sleep": {
@@ -31,13 +31,8 @@ export default {
   },
   "garden": {
     "name": "Gardening",
-    "scorePerUnit": 30,
+    "scorePerUnit": 10,
     "type": "number"
-  },
-  "medical": {
-    "name": "Medical appointment",
-    "scorePerUnit": -200,
-    "type": "boolean"
   },
   "bike": {
     "name": "Bike ride",
@@ -46,7 +41,7 @@ export default {
   },
   "jogging": {
     "name": "Jogging",
-    "scorePerUnit": -20,
+    "scorePerUnit": -5,
     "type": "number"
   },
   "videogames": {
