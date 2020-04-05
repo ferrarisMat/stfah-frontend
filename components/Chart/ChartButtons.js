@@ -5,7 +5,7 @@ import ChartButton from '../Chart/ChartButton';
 export default function(props) {
 
     return (
-        <View style={{ flexDirection: "row", backgroundColor: '#F4F4F4', padding: 1, borderRadius: 4 }}>
+        <View style={{ flexDirection: "row", backgroundColor: '#F4F4F4', padding: 1, borderRadius: 4, marginTop: 20 }}>
             <ChartButton
                 text="W"
                 onPress={() => {
