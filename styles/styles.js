@@ -23,6 +23,10 @@ export let Styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Rosario Regular'
   },
+  bodyLarge: {
+    fontSize: 16,
+    fontFamily: 'Rosario Regular'
+  },
 
   // ==========
   // LAYOUT

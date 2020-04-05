@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text, AsyncStorage, ScrollView } from "react-native";
-import Pedometer from "../components/Pedometer/Pedometer";
 import Navigation from "../components/Navigation";
 import Charts from "../components/Charts";
 import Stats from "../components/Stats";
@@ -32,7 +31,6 @@ export default function Home({ navigation }) {
           <Text style={[Styles.title, {marginTop: 20}]}>{userName}</Text>
           <Text style={{marginTop: 10}}>Total</Text>
           <View style={Styles.textRow}><Text style={[Styles.redTitle, {marginRight: 7}]}>-60</Text><Text style={Styles.body}>pts</Text></View>
-          <Pedometer />
           <Charts />
         </SafeAreaView>
         <SafeAreaView style={{flex: 1, backgroundColor: '#F4F4F4', marginTop: 20}}>

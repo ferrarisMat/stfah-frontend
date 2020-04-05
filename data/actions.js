@@ -46,7 +46,7 @@ export default {
   },
   "videogames": {
     "name": "Playing video games",
-    "scorePerUnit": 1,
+    "scorePerUnit": 40,
     "type": "number"
   }
 };
