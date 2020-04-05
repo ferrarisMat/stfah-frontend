@@ -52,7 +52,7 @@ export default function Chart() {
       let marginTop = i === 0 ? 0 : 12;
       const value = Actions[data.action].scorePerUnit * data.value;
       rows.push(
-        <View style={{marginTop: marginTop, flexDirection: 'row', justifyContent: 'stretch'}}>
+        <View style={[{marginTop: marginTop}, OwnStyles.block, OwnStyles.shadow]}>
           <View style={OwnStyles.row}>
             <Text style={[Styles.smallTitle, {color: 'black'}]}>{Actions[data.action].name}</Text>
           </View>
@@ -63,7 +63,7 @@ export default function Chart() {
 
     const blockWidth = Device_Width - 36
     blocks.push(
-      <View style={{paddingLeft: paddingLeft, paddingRight: paddingRight, width: blockWidth, marginRight: i === days.length - 1 ? 36:0 }}>
+      <View style={[OwnStyles.shadow, {paddingLeft: paddingLeft, paddingRight: paddingRight, width: blockWidth, marginRight: i === days.length - 1 ? 36:0 }]}>
         <View style={OwnStyles.dayBlock}>
           <View>
             <Text style={[Styles.body, {color: 'white'}]}>{monthNames[when.getMonth()]} {(when.getDate()<10?'0':'')+when.getDate()}</Text>
@@ -76,8 +76,8 @@ export default function Chart() {
   });
 
   return(
-    <View style={[{ backgroundColor: '#F4F4F4', paddingTop: 18, marginTop: 20, flex: 1 }]}>
-      <ScrollView snapToInterval={Device_Width - 36} decelerationRate="fast" contentContainerStyle={{marginLeft: 18}} horizontal={true}>
+    <View style={[{ paddingTop: 18, marginTop: 20, flex: 1 }]}>
+      <ScrollView showsHorizontalScrollIndicator={false} contentContainerStyle={{paddingBottom: 40, marginLeft: 18}} snapToInterval={Device_Width - 36} decelerationRate="fast" horizontal={true}>
         {blocks}
       </ScrollView>
     </View>
@@ -113,5 +113,15 @@ let OwnStyles = StyleSheet.create({
     borderTopRightRadius: 4,
     borderBottomRightRadius: 4,
     backgroundColor: 'white'
+  },
+  block: {
+    flexDirection: 'row'
+  },
+  shadow: {
+    flexDirection: 'row',
+    shadowColor: 'rgba(0,0,0,0.2)',
+    shadowOffset: { width: 0, height: 16 },
+    shadowRadius: 12,
+    shadowOpacity: 1
   }
 });
