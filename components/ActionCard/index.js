@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
 import edit from '../../assets/action-edit.png';
 import close from '../../assets/action-close.png';
 import spinner from '../../assets/process-spinner.png';
@@ -11,13 +11,13 @@ function ActionCard(props){
     isGoodAction, // true or false
     value, // any
     actionName, // string
-    actionCTAcontent, // string
+    actionCTAcontent, // string | undefined
     actionType, // bool | text
     valueType, // hours | steps | bool 
   } = props;
 
   const [isEditing, setIsEditing] = useState(false);
-  const [actionValue, setActionValue] = useState(value)
+  const [actionValue, setActionValue] = useState(value || '')
   const [isExpanded, setIsExpanded] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -48,6 +48,15 @@ function ActionCard(props){
       return '#F3533A';
     }
     return '#FA9F42';
+  }
+
+  function handleValueChange(e){
+    setActionValue(e.nativeEvent.text);
+    onChange(e)
+  }
+
+  function actionCTAPress(){
+    setIsProcessing(!isProcessing)
   }
 
   const EditIcon = () => {
@@ -92,6 +101,28 @@ function ActionCard(props){
           {(!isEditing && !isExpanded) && <EditIcon />}
           {(isExpanded || isEditing) && <CloseIcon />}
         </View>
+        <View style={{flex: 0, flexDirection: "row", alignItems: "center", justifyContent: "space-between"}}>
+          <View style={{flex: 0, flexDirection: "row", alignItems: 'baseline'}}>
+            {!isEditing ? (
+              <Text style={{fontSize: 32, fontWeight: "bold", color: "#ffffff"}}>{actionValue}</Text>
+            ) : <TextInput autoFocus value={actionValue} style={{color: "#ffffff", fontSize: 32}} onChange={handleValueChange} />}
+            {actionType !== 'bool' && <Text style={{fontSize: 18, color: "#ffffff", marginLeft: 5}}>{valueType}</Text>}
+          </View>
+          {(isExpanded && actionCTAcontent !== undefined) && (
+            <TouchableOpacity onPress={actionCTAPress}>
+              <Text
+                style={{
+                  padding: 5,
+                  borderRadius: 5,
+                  backgroundColor: 'rgba(255,255,255, .3)',
+                  color: '#ffffff',
+                  textAlign: 'center',
+                  fontSize: 16,
+                }}
+              >{`${isProcessing ? 'Stop' : 'Start'} ${actionCTAcontent}`}</Text>
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     </TouchableOpacity>
   )
@@ -103,6 +134,9 @@ const style = StyleSheet.create({
     borderRadius: 5,
     width: 150,
     height: 150,
+    flex: 0,
+    flexWrap: 'nowrap',
+    justifyContent: 'space-between',
   },
   icon: {
     width: 30,
@@ -126,7 +160,9 @@ ActionCard.defaultProps = {
   actionType: 'good',
   value: null,
   actionName: 'test action',
-  valueType: 'text',
+  value: '32',
+  valueType: 'hours',
+  actionCTAcontent: undefined,
 };
 
 export default ActionCard;

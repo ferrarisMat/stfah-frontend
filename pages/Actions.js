@@ -24,6 +24,42 @@ function NumberAction(props) {
   </View>)
 }
 
+
+const data = [
+  {
+    actionName: 'Netflix',
+    isGoodAction: true,
+    value: 32,
+    valueType: 'hours',
+    actionCTAcontent: 'Watching',
+    actionType: 'text',
+  },
+  {
+    actionName: 'Gaming',
+    isGoodAction: true,
+    value: 12,
+    valueType: 'hours',
+    actionCTAcontent: 'Playing',
+    actionType: 'text',
+  },
+  {
+    actionName: 'Steps',
+    isGoodAction: false,
+    value: 324,
+    valueType: 'steps',
+    actionCTAcontent: undefined,
+    actionType: 'text',
+  },
+  {
+    actionName: 'Jogging',
+    isGoodAction: false,
+    value: 30,
+    valueType: 'mins',
+    actionCTAcontent: 'Running',
+    actionType: 'text',
+  },
+]
+
 export default function () {
   var actions = [];
   for (const key in ActionsData) {
@@ -37,10 +73,19 @@ export default function () {
   return (
       // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <ActionCard
-            actionName="Netflix"
-            isGoodAction
-          />
+          {data.map((item, i) => {
+            return (
+              <ActionCard
+                key={`${item.actionName + i}`}
+                actionName={item.actionName}
+                isGoodAction={item.isGoodAction}
+                value={item.value}
+                valueType={item.valueType}
+                actionCTAcontent={item.actionCTAcontent}
+                actionType={item.actionType}
+              />
+            )
+          })}
           {/* <ScrollView>
             <SafeAreaView style={styles.safeArea}>
               <View style={{ paddingBottom: 50 }}>
