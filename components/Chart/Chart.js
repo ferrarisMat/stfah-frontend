@@ -7,7 +7,7 @@ import * as shape from 'd3-shape'
 export default class Chart extends React.PureComponent {
     render() {
         // Data for the chart
-        const contentInset = { top: 10, bottom: 10 }
+        const contentInset = { top: 10, bottom: 10, left: 10, right: 10 }
 
         const Decorator = ({ x, y, data }) => {
             return data.map((value, index) => (
@@ -23,7 +23,7 @@ export default class Chart extends React.PureComponent {
             ))
         }
 
-        const axesSvg = { fontSize: 10, fill: 'grey' };
+        const axesSvg = { fontSize: 9, fill: 'grey' };
         const xAxisHeight = 30
 
         const Gradient = () => (
@@ -52,11 +52,12 @@ export default class Chart extends React.PureComponent {
             <View style={{ flex:1,height: 200, flexDirection: 'row', width: 300 }}>
                     <YAxis
                         data={this.props.chartData}
-                        style={{ marginBottom: xAxisHeight }}
+                        style={{ marginBottom: xAxisHeight, flex: 1 }}
                         contentInset={contentInset}
                         svg={axesSvg}
+                        yAccessor={({ item }) => item.value}
                     />
-                    <View style={{ flex: 1 }}>
+                    <View style={{ width: "90%" }}>
                         <LineChart
                             data={this.props.chartData}
                             contentInset={contentInset}
@@ -70,7 +71,7 @@ export default class Chart extends React.PureComponent {
                             <HorizontalLine/>
                         </LineChart>
                         <XAxis
-                            style={{ height: xAxisHeight }}
+                            style={{ height: xAxisHeight, widht: '40%' }}
                             data={this.props.chartData}
                             formatLabel={(value) => value}
                             contentInset={{ contentInset }}
