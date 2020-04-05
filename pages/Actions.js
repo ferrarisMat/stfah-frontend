@@ -2,6 +2,7 @@ import React from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet, Button, TextInput, Keyboard, ScrollView } from "react-native";
 import SafeAreaView from 'react-native-safe-area-view';
 import ActionsData from "../data/actions";
+import ActionCard from '../components/ActionCard';
 
 function BooleanAction(props) {
   return (<View style={styles.actionRow}>
@@ -34,18 +35,22 @@ export default function () {
   }
 
   return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <ScrollView>
+          <ActionCard
+            actionName="Netflix"
+            isProcessing
+          />
+          {/* <ScrollView>
             <SafeAreaView style={styles.safeArea}>
               <View style={{ paddingBottom: 50 }}>
                 <Text style={{ fontSize: 20, marginBottom: 20 }}>Add activity</Text>
                 {actions}
               </View>
             </SafeAreaView>
-          </ScrollView>
+          </ScrollView> */}
         </View>
-      </TouchableWithoutFeedback>
+      // </TouchableWithoutFeedback>
   );
 }
 
@@ -53,7 +58,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "lightblue",
-    paddingTop: 50
+    paddingTop: 150,
+    paddingLeft: 20,
+    paddingRight: 20,
+    position: 'relative',
   },
   safeArea: {
     flex: 1,
