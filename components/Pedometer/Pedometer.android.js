@@ -81,7 +81,10 @@ export default class AndroidPedometer extends Component<{}> {
 
 const styles = StyleSheet.create({
   card: {
-    padding: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 20,
     borderRadius: 4,
     backgroundColor: "#8AD879",
     fontSize: 14,
