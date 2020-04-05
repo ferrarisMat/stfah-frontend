@@ -58,7 +58,7 @@ export default function Chart() {
           <View style={OwnStyles.row}>
             <Text style={[Styles.smallTitle, {color: 'black'}]}>{Actions[data.action].name}</Text>
           </View>
-          <View style={[OwnStyles.score]}><Text style={[Styles.smallTitle, {color: value > 0 ? '#8AD879' : '#F3533A'}]}>{value}</Text></View>
+          <View style={[OwnStyles.score]}><Text style={[Styles.smallTitle, {color: value > 0 ? '#8AD879' : '#F3533A'}]}>{value > 0 && '+'}{value}</Text></View>
         </View>
       )
     });
