@@ -51,14 +51,14 @@ export default class Chart extends React.PureComponent {
         return(
             <View style={{ height: 200, flexDirection: 'row', width: 300 }}>
                     <YAxis
-                        data={dataArea}
+                        data={this.props.chartData}
                         style={{ marginBottom: xAxisHeight }}
                         contentInset={contentInset}
                         svg={axesSvg}
                     />
                     <View style={{ flex: 1 }}>
                         <LineChart
-                            data={dataArea}
+                            data={this.props.chartData}
                             contentInset={contentInset}
                             style={{ flex: 1, height: 200 }}
                             svg={{ stroke: 'url(#gradient)' , strokeWidth: 2 }}
@@ -71,12 +71,12 @@ export default class Chart extends React.PureComponent {
                         </LineChart>
                         <XAxis
                             style={{ height: xAxisHeight }}
-                            data={dataArea}
+                            data={this.props.chartData}
                             formatLabel={(value) => value}
                             contentInset={{ contentInset }}
                             svg={axesSvg}
                             yAccessor={({ index }) => index}
-                            formatLabel={(_, index) => dataArea[ index ].label}
+                            formatLabel={(_, index) => this.props.chartData[ index ].label}
                         />
                     </View>
                 </View>
