@@ -28,5 +28,15 @@ export default [
     "date": "2020-04-02T09:15:30.813Z",
     "action": "netflix",
     "value": 4
+  },
+  {
+    "date": "2020-04-01T09:15:30.813Z",
+    "action": "videogames",
+    "value": 3
+  },
+  {
+    "date": "2020-03-31T09:15:30.813Z",
+    "action": "netflix",
+    "value": 4
   }
 ];

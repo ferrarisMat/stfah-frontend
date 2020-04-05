@@ -9,6 +9,11 @@ export let Styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'Rosario Bold'
   },
+  smallTitle: {
+    color: 'white',
+    fontSize: 16,
+    fontFamily: 'Rosario Bold'
+  },
   redTitle: {
     color: '#F3533A',
     fontSize: 25,
@@ -23,8 +28,8 @@ export let Styles = StyleSheet.create({
   // LAYOUT
   // ==========
   container: {
-    paddingLeft: 25,
-    paddingRight: 25
+    paddingLeft: 24,
+    paddingRight: 24
   },
   textRow: {
     flexDirection: 'row',
