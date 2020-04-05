@@ -39,7 +39,7 @@ export default function () {
         <View style={styles.container}>
           <ActionCard
             actionName="Netflix"
-            isProcessing
+            isGoodAction
           />
           {/* <ScrollView>
             <SafeAreaView style={styles.safeArea}>
