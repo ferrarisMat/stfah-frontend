@@ -109,7 +109,7 @@ function FormatDataArray(object) {
                         isMonth={isMonth}
                         updateMonth={updateMonth}
                     />
-                    <View style={{ height: 200, flexDirection: 'row', width: 300, marginTop: 20 }}>
+                    <View style={{ height: 200, flexDirection: 'row', marginTop: 20 }}>
                         <Chart 
                             chartData={chartData}
                         />

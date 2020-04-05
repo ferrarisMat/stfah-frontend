@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Pedometer } from "expo-legacy";
 import { Text, View, StyleSheet } from "react-native";
+import { Styles } from '../../styles/styles';
 
 export default class AndroidPedometer extends Component<{}> {
   state = {

@@ -49,7 +49,7 @@ export default class Chart extends React.PureComponent {
         ))
 
         return(
-            <View style={{ height: 200, flexDirection: 'row', width: 300 }}>
+            <View style={{ flex:1,height: 200, flexDirection: 'row', width: 300 }}>
                     <YAxis
                         data={this.props.chartData}
                         style={{ marginBottom: xAxisHeight }}
@@ -60,7 +60,7 @@ export default class Chart extends React.PureComponent {
                         <LineChart
                             data={this.props.chartData}
                             contentInset={contentInset}
-                            style={{ flex: 1, height: 200 }}
+                            style={{ flex: 1, height: 200, width: '100%' }}
                             svg={{ stroke: 'url(#gradient)' , strokeWidth: 2 }}
                             yAccessor={({ item }) => item.value}
                         >
