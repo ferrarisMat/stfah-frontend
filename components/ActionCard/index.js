@@ -7,11 +7,13 @@ import spinner from '../../assets/process-spinner.png';
 
 function ActionCard(props){
   const {
-    onChange,
-    actionType,
-    value,
-    actionName,
-    valueType,
+    onChange, // function
+    isGoodAction, // true or false
+    value, // any
+    actionName, // string
+    actionCTAcontent, // string
+    actionType, // bool | text
+    valueType, // hours | steps | bool 
   } = props;
 
   const [isEditing, setIsEditing] = useState(false);
@@ -40,7 +42,7 @@ function ActionCard(props){
 
   function background(){
     if(!isProcessing){
-      if(actionType === 'good'){
+      if(isGoodAction){
         return '#8AD879';
       }
       return '#F3533A';
