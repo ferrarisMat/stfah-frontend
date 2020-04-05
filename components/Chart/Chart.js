@@ -3,60 +3,9 @@ import { Dimensions, View, StyleSheet } from "react-native";
 import { LineChart, Grid, YAxis, XAxis } from 'react-native-svg-charts';
 import { Circle, Path, Defs, LinearGradient, Stop, G, Line, Rect, Text } from 'react-native-svg';
 import * as shape from 'd3-shape'
-import Actions from "../../data/actions";
-import UserData from "../../data/userdata";
 
-// Formatting the date
-function formatDate(date){
-    var dd = date.getDate();
-    var mm = date.getMonth()+1;
-    if(dd<10) {dd='0'+dd}
-    if(mm<10) {mm='0'+mm}
-    date = dd+'/'+mm;
-    return date
-}
-
-export default class ChartWeek extends React.PureComponent {
+export default class Chart extends React.PureComponent {
     render() {
-        // Initiate the array with total points per day
-        let totalPointsPerDay = [];
-        let lastDay; // Last day of the week
-        for (var i=0; i<7; i++) {
-            var d = new Date();
-            d.setDate(d.getDate() - i);
-            totalPointsPerDay[formatDate(d)] = 0;
-
-            if(i === 6) {
-                lastDay = formatDate(d);
-            }
-        }
-
-        // Data from the user
-        UserData.forEach((user) => {
-            const today = new Date(user.date);
-            const day = formatDate(today);
-            // If the day is in the interval of the 7 last days
-            if((today.getDate() < lastDay.substring(0,2) && today.getMonth() == lastDay.substring(3,5)) || (today.getMonth() < lastDay.substring(3,5))) {
-                // If the value of the action is a boolean
-                if(Actions[user.action].type === "boolean" && user.value === true) {
-                    totalPointsPerDay[day] += Actions[user.action].scorePerUnit;
-                }
-                else if(Actions[user.action].type === "number" && parseInt(user.value)) {
-                    totalPointsPerDay[day] += Actions[user.action].scorePerUnit * user.value;
-                }
-            }
-        });
-
-        // Formatting the array
-        const dataArea = [];
-        for(const key in totalPointsPerDay) {
-            dataArea.push({
-                value: totalPointsPerDay[key],
-                label: key
-            })
-        }
-        dataArea.reverse();
-
         // Data for the chart
         const contentInset = { top: 10, bottom: 10 }
 
@@ -87,10 +36,6 @@ export default class ChartWeek extends React.PureComponent {
             </Defs>
         )
 
-        /**
-         * Both below functions should preferably be their own React Components
-         */
-
         const HorizontalLine = (({ y }) => (
             <Line
                 key={ 'zero-axis' }
@@ -106,14 +51,14 @@ export default class ChartWeek extends React.PureComponent {
         return(
             <View style={{ height: 200, flexDirection: 'row', width: 300 }}>
                     <YAxis
-                        data={dataArea}
+                        data={this.props.chartData}
                         style={{ marginBottom: xAxisHeight }}
                         contentInset={contentInset}
                         svg={axesSvg}
                     />
                     <View style={{ flex: 1 }}>
                         <LineChart
-                            data={dataArea}
+                            data={this.props.chartData}
                             contentInset={contentInset}
                             style={{ flex: 1, height: 200 }}
                             svg={{ stroke: 'url(#gradient)' , strokeWidth: 2 }}
@@ -126,12 +71,12 @@ export default class ChartWeek extends React.PureComponent {
                         </LineChart>
                         <XAxis
                             style={{ height: xAxisHeight }}
-                            data={dataArea}
+                            data={this.props.chartData}
                             formatLabel={(value) => value}
                             contentInset={{ contentInset }}
                             svg={axesSvg}
                             yAccessor={({ index }) => index}
-                            formatLabel={(_, index) => dataArea[ index ].label}
+                            formatLabel={(_, index) => this.props.chartData[ index ].label}
                         />
                     </View>
                 </View>
